@@ -55,7 +55,17 @@ class User {
 				return false;
 			}
 		} else {
+			$query = "UPDATE Users 
+			SET name = '$this->name', 
+			email = '$this->email', 
+			hashed_password = '$this->hashedPassword' 
+			WHERE id = $this->id";
 			
+			if($connection->query($query)) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 	}
 	
